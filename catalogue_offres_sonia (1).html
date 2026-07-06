@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mes offres — Sonia</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:     #1A1A1A;
+  --warm:    #FAF7F3;
+  --sand:    #EDE7DC;
+  --stone:   #C8BFB2;
+  --terra:   #B5622E;
+  --terra-l: #D4855A;
+  --sage:    #6B7C6E;
+  --muted:   #7A736C;
+  --white:   #FFFFFF;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.header {
+  background: var(--ink);
+  padding: 52px 32px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--terra), var(--terra-l), var(--terra), transparent);
+}
+
+.header-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terra-l);
+  margin-bottom: 18px;
+}
+
+.header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 6vw, 56px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.header h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--terra-l);
+}
+
+.header-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+
+.header-sig {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50px;
+  padding: 8px 20px 8px 10px;
+}
+
+.sig-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--terra);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-style: italic;
+}
+
+.sig-text { font-size: 13px; color: rgba(255,255,255,0.75); }
+.sig-text strong { color: var(--white); display: block; font-size: 14px; }
+
+/* ── INTRO NOTE ── */
+.intro-note {
+  max-width: 640px;
+  margin: 48px auto 0;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.intro-note p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--terra);
+  margin: 32px auto;
+  border: none;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 6px;
+}
+
+/* ── JOURNEY BAR ── */
+.journey {
+  padding: 48px 24px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.journey-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.journey-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.journey-step {
+  flex: 1;
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.journey-step::after {
+  content: '→';
+  position: absolute;
+  right: -10px;
+  top: 18px;
+  color: var(--stone);
+  font-size: 16px;
+  z-index: 1;
+}
+
+.journey-step:last-child::after { display: none; }
+
+.journey-dot {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--sand);
+  border: 2px solid var(--stone);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.journey-dot.highlight {
+  background: var(--terra);
+  border-color: var(--terra);
+}
+
+.journey-step-name {
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.journey-step-price {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--terra);
+  margin-top: 4px;
+}
+
+/* ── CARDS GRID ── */
+.cards-section {
+  padding: 0 24px 64px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.cards-group-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--sand);
+  padding-top: 40px;
+  margin-bottom: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--sand);
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+
+.card.featured {
+  border-color: var(--terra);
+  border-width: 1.5px;
+}
+
+.card-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--terra);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 14px;
+  border-radius: 50px;
+}
+
+.card-icon {
+  font-size: 24px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.card-tagline {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.card-includes {
+  list-style: none;
+  margin-bottom: 20px;
+  display: grid;
+  gap: 7px;
+}
+
+.card-includes li {
+  font-size: 13px;
+  color: var(--ink);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.card-includes li::before {
+  content: '✓';
+  color: var(--terra);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.card-divider {
+  border: none;
+  border-top: 1px solid var(--sand);
+  margin: 18px 0;
+}
+
+.card-price-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.card-price.highlight { color: var(--terra); }
+
+.card-price-note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.3;
+  text-align: right;
+}
+
+.card-cta {
+  display: block;
+  margin-top: 18px;
+  text-align: center;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 11px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.card-cta:hover { background: var(--terra); }
+.card-cta-secondary { display: block; text-align: center; margin-top: 8px; font-size: 0.8rem; color: var(--ink); opacity: 0.6; text-decoration: none; }
+.card-cta-secondary:hover { opacity: 1; text-decoration: underline; }
+.card-cta.terra { background: var(--terra); }
+.card-cta.terra:hover { background: #9E5A38; }
+
+/* ── FREE CARD ── */
+.card-free {
+  background: var(--sand);
+  border-color: var(--sand);
+  text-align: center;
+}
+
+.card-free .card-price { font-size: 28px; color: var(--sage); }
+
+/* ── FULL WIDTH CARD ── */
+.card-full {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.card-full-left {}
+.card-full-right { border-left: 1px solid var(--sand); padding-left: 32px; }
+
+.saving-tag {
+  display: inline-block;
+  background: #EEF5EE;
+  color: var(--sage);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+/* ── REMINDER BOX ── */
+.reminder {
+  background: var(--ink);
+  color: var(--white);
+  margin: 0 24px 64px;
+  border-radius: 20px;
+  padding: 40px 32px;
+  max-width: 912px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.reminder-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.reminder-text p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+.reminder-cta {
+  display: inline-block;
+  background: var(--terra);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.reminder-cta:hover { background: var(--terra-l); }
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 40px 24px 56px;
+  border-top: 1px solid var(--sand);
+}
+
+.footer p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.footer strong { color: var(--ink); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .card-full {
+    grid-template-columns: 1fr;
+  }
+  .card-full-right {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--sand);
+    padding-top: 24px;
+  }
+  .reminder {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .reminder-cta { width: 100%; text-align: center; display: block; }
+  .journey-bar { gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <p class="header-eyebrow">Consulting Marketing & Commercial · Freelances</p>
+  <h1>Mes offres<br><em>pour avancer concrètement</em></h1>
+  <p class="header-sub">Du premier regard sur votre activité jusqu'à un accompagnement dans la durée — choisissez ce qui correspond à votre situation.</p>
+  <div class="header-sig">
+    <div class="sig-avatar">S</div>
+    <div class="sig-text">
+      <strong>Sonia</strong>
+      Consultante · 30 ans d'expérience terrain
+    </div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<div class="intro-note">
+  <p>"Chaque offre a été pensée pour répondre à un moment précis de votre parcours. Il n'y a pas de bonne ou mauvaise porte d'entrée — il y a celle qui correspond à là où vous en êtes aujourd'hui."</p>
+</div>
+<hr class="divider">
+
+<!-- JOURNEY -->
+<section class="journey">
+  <p class="section-label" style="text-align:center">Votre parcours possible</p>
+  <h2 class="journey-title">D'un premier échange à un suivi dans la durée</h2>
+  <div class="journey-bar">
+    <div class="journey-step">
+      <div class="journey-dot">👋</div>
+      <div class="journey-step-name">Appel<br>découverte</div>
+      <div class="journey-step-price">Gratuit</div>
+    </div>
+    <div class="journey-step">
+      <div class="journey-dot">⚡</div>
+      <div class="journey-step-name">Consultation<br>ponctuelle</div>
+      <div class="journey-step-price">90 €</div>
+    </div>
+    <div class="journey-step">
+      <div class="journey-dot highlight">🎓</div>
+      <div class="journey-step-name">Formation<br>vente</div>
+      <div class="journey-step-price">297 €</div>
+    </div>
+    <div class="journey-step">
+      <div class="journey-dot highlight">🔍</div>
+      <div class="journey-step-name">Audit<br>global</div>
+      <div class="journey-step-price">350 €</div>
+    </div>
+    <div class="journey-step">
+      <div class="journey-dot highlight">📅</div>
+      <div class="journey-step-name">Accompagnement<br>mensuel</div>
+      <div class="journey-step-price">290 €/mois</div>
+    </div>
+    <div class="journey-step">
+      <div class="journey-dot highlight">🤝</div>
+      <div class="journey-step-name">Accompagnement<br>annuel</div>
+      <div class="journey-step-price">2 900 €/an</div>
+    </div>
+  </div>
+</section>
+
+<!-- CARDS -->
+<div class="cards-section">
+
+  <!-- GROUPE 1 : ENTRÉE -->
+  <p class="cards-group-label">Pour commencer — sans engagement</p>
+  <div class="cards-grid">
+
+    <!-- APPEL DECOUVERTE -->
+    <div class="card card-free">
+      <span class="card-icon">👋</span>
+      <div class="card-name">Appel découverte</div>
+      <p class="card-tagline">On fait connaissance. J'évalue votre situation, vous évaluez si mon approche vous convient. Sans pression, sans obligation.</p>
+      <ul class="card-includes">
+        <li>30 minutes par téléphone</li>
+        <li>Analyse rapide de votre situation</li>
+        <li>Orientation vers l'offre la plus adaptée</li>
+      </ul>
+      <hr class="card-divider">
+      <div class="card-price-row">
+        <div class="card-price" style="color:var(--sage)">Gratuit</div>
+        <div class="card-price-note">Toujours.<br>Sans exception.</div>
+      </div>
+      <a href="https://tidycal.com/gougeonsonia70/free-cafe-freelance-20-minutes" class="card-cta" style="background:var(--sage)">Prendre rendez-vous</a>
+    </div>
+
+    <!-- CONSULTATION -->
+    <div class="card">
+      <span class="card-icon">⚡</span>
+      <div class="card-name">Consultation ponctuelle</div>
+      <p class="card-tagline">Vous avez une question précise, un blocage, un choix à faire. On travaille dessus ensemble en une heure.</p>
+      <ul class="card-includes">
+        <li>1h par téléphone ou visio</li>
+        <li>Réponse directe à votre problème du moment</li>
+        <li>Notes et points d'action envoyés sous 24h</li>
+        <li>Peut être reportée une fois sous 30 jours</li>
+      </ul>
+      <hr class="card-divider">
+      <div class="card-price-row">
+        <div class="card-price">90 €</div>
+        <div class="card-price-note">Paiement<br>à la réservation</div>
+      </div>
+      <a href="https://tidycal.com/gougeonsonia70/une-heure-consultation" class="card-cta">Je réserve</a>
+    </div>
+
+  </div>
+
+  <!-- GROUPE 2 : COMPÉTENCES & DIAGNOSTIC -->
+  <p class="cards-group-label">Pour progresser — prestations ciblées</p>
+  <div class="cards-grid">
+
+    <!-- FORMATION VENTE -->
+    <div class="card featured">
+      <span class="card-badge">⭐ Populaire</span>
+      <span class="card-icon">🎓</span>
+      <div class="card-name">Formation Vente Freelance</div>
+      <p class="card-tagline">Du premier contact au closing — la méthode complète, adaptée à votre offre et mise en pratique avec vous.</p>
+      <ul class="card-includes">
+        <li>5 vidéos courtes — pipeline complet de la vente</li>
+        <li>Session visio 40 min — adaptation à votre profil</li>
+        <li>Jeu de rôle 30 min — mise en situation réelle</li>
+        <li>Votre trame de vente personnalisée</li>
+        <li>Fiche récap PDF à garder sous la main</li>
+      </ul>
+      <hr class="card-divider">
+      <div class="card-price-row">
+        <div class="card-price highlight">297 €</div>
+        <div class="card-price-note">Accès immédiat<br>aux vidéos</div>
+      </div>
+      <a href="https://www.facebook.com/messages/t/profile.php?id=61591257906532" class="card-cta terra" target="_blank">Je m'inscris</a>
+      <a href="https://wa.me/84335760146" class="card-cta-secondary" target="_blank">ou via WhatsApp →</a>
+    </div>
+
+    <!-- AUDIT -->
+    <div class="card">
+      <span class="card-icon">🔍</span>
+      <div class="card-name">Audit global de l'activité</div>
+      <p class="card-tagline">Un regard extérieur complet sur votre activité — pour savoir exactement où vous en êtes et où agir en priorité.</p>
+      <ul class="card-includes">
+        <li>Analyse de votre positionnement et offre</li>
+        <li>Audit de votre visibilité (LinkedIn, site…)</li>
+        <li>Évaluation de votre politique tarifaire</li>
+        <li>Rapport écrit structuré + plan d'action</li>
+        <li>1h de restitution en visio avec Sonia</li>
+      </ul>
+      <hr class="card-divider">
+      <div class="card-price-row">
+        <div class="card-price">350 €</div>
+        <div class="card-price-note">50 % à la commande<br>50 % à la remise</div>
+      </div>
+      <a href="https://www.facebook.com/messages/t/profile.php?id=61591257906532" class="card-cta" target="_blank">Je demande un audit</a>
+      <a href="https://wa.me/84335760146" class="card-cta-secondary" target="_blank">ou via WhatsApp →</a>
+    </div>
+
+  </div>
+
+  <!-- GROUPE 3 : ACCOMPAGNEMENT -->
+  <p class="cards-group-label">Pour avancer dans la durée — accompagnement</p>
+  <div class="cards-grid">
+
+    <!-- MENSUEL -->
+    <div class="card">
+      <span class="card-icon">📅</span>
+      <div class="card-name">Accompagnement mensuel</div>
+      <p class="card-tagline">Un suivi régulier pour avancer mois après mois, débloquer les situations et ajuster le cap.</p>
+      <ul class="card-includes">
+        <li>2 appels téléphone ou visio / mois (45 min chacun)</li>
+        <li>Questions écrites répondues sous 24h ouvrées</li>
+        <li>Compte-rendu + points d'action après chaque appel</li>
+        <li>Révision de vos supports si besoin</li>
+        <li>Audit initial à 200 € au lieu de 350 € le 1er mois</li>
+      </ul>
+      <hr class="card-divider">
+      <div class="card-price-row">
+        <div class="card-price">290 €</div>
+        <div class="card-price-note">/ mois · Engagement<br>3 mois minimum</div>
+      </div>
+      <a href="https://www.facebook.com/messages/t/profile.php?id=61591257906532" class="card-cta" target="_blank">Je démarre</a>
+      <a href="https://wa.me/84335760146" class="card-cta-secondary" target="_blank">ou via WhatsApp →</a>
+    </div>
+
+    <!-- ANNUEL -->
+    <div class="card featured">
+      <span class="card-badge">💰 Meilleur tarif</span>
+      <span class="card-icon">🤝</span>
+      <div class="card-name">Accompagnement annuel</div>
+      <p class="card-tagline">L'option la plus complète pour transformer votre activité en profondeur sur 12 mois.</p>
+      <ul class="card-includes">
+        <li>Tout l'accompagnement mensuel inclus</li>
+        <li>Audit global offert (valeur 350 €)</li>
+        <li>Bilan semestriel approfondi (2h)</li>
+        <li>Révision complète du positionnement à 6 mois</li>
+        <li>Priorité de disponibilité sur les créneaux</li>
+      </ul>
+      <hr class="card-divider">
+      <div class="card-price-row">
+        <div class="card-price highlight">2 900 €</div>
+        <div class="card-price-note">/ an · soit 242 €/mois<br>Économie de ~600 €</div>
+      </div>
+      <span class="saving-tag">✓ Audit offert · ✓ Bilan semestriel · ✓ Priorité</span>
+      <a href="https://www.facebook.com/messages/t/profile.php?id=61591257906532" class="card-cta terra" target="_blank">Je m'engage sur l'année</a>
+      <a href="https://wa.me/84335760146" class="card-cta-secondary" target="_blank">ou via WhatsApp →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- REMINDER BOX -->
+<div class="reminder">
+  <div class="reminder-text">
+    <h3>Vous ne savez pas par où commencer ?</h3>
+    <p>C'est normal — c'est exactement pour ça qu'existe l'appel découverte. 30 minutes gratuites pour faire le point ensemble et identifier l'offre qui correspond à votre situation du moment. Sans engagement, sans pression.</p>
+  </div>
+  <a href="https://tidycal.com/gougeonsonia70/free-cafe-freelance-20-minutes" class="reminder-cta">Prendre rendez-vous gratuitement →</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>
+    <strong>Sonia</strong> · Consulting Marketing & Commercial pour freelances<br>
+    Toutes les prestations sont soumises aux Conditions Générales de Vente et à la Politique d'annulation.<br>
+    Ces documents vous sont remis sur demande ou avec votre proposition commerciale.<br><br>
+    <span style="color:var(--stone)">Questions ? Envoyez-moi un message — je réponds personnellement.</span>
+  </p>
+</footer>
+
+</body>
+</html>
